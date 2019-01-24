@@ -7,7 +7,7 @@
 }
 
 #root {
-    background-color: #E5E5E5;
+    background-color: #fff;
 }
 
 .autoservices {
@@ -24,37 +24,87 @@
 
     &__list {
         border-collapse: collapse;
+        width: 100%;
 
         & thead {
             background: #33449C;
             border-radius: 2px;
-            & th {
+            & td {
+                padding: 16px 20px 19px;
+                min-width: 200px;
+                display: inline-flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                & p {
+                    width: 100%;
+                    color: #fff;
+                    font-size: 11px;
+                    font-weight: lighter;
+                    text-align: left;
+                    margin-bottom: 5px;
+                }
 
-            }
-            
-            & select {
-                color: #fff;
-                margin: 5px 20px;
-                padding: 5px;
-                border-radius: 5px;
-                -webkit-appearance: none;
-                background-image: url('downarrow.png');
-                background-color: rgba(0, 0, 0, 0.616);
-                background-position: right center;
-                background-size: contain;
-                background-repeat: no-repeat;
-                line-height: 1em;
-                /* for FF */
-                -moz-appearance: none;
-                text-indent: 0.01px; 
-                text-overflow: '';
-                /* for IE */
-                -ms-appearance: none;
-                appearance: none!important;
-            }
-            
-            select::-ms-expand {
-                display: none;
+                & select {
+                    color: #fff;
+                    padding: 5px;
+                    border: none;
+                    border-radius: 5px;
+                    -webkit-appearance: none;
+                    background-image: url('downarrow.png');
+                    background-color: #1D2A6C;
+                    background-position: 90% center;
+                    background-size: 16px 10px;
+                    background-repeat: no-repeat;
+                    line-height: 20px;
+                    /* for FF */
+                    -moz-appearance: none;
+                    text-indent: 0.01px; 
+                    text-overflow: '';
+                    /* for IE */
+                    -ms-appearance: none;
+                    appearance: none!important;
+    
+                    &:hover {
+                        background-color: #1F3089;
+                    }
+                    &.active {
+                        color: #000;
+                        background-image: url('uparrow.png');
+                        background-color: #fff;
+                    }
+                }
+                
+                select::-ms-expand {
+                    display: none;
+                }
+
+                &:nth-of-type(2) {
+                    max-width: 362px;
+                }
+
+                &:nth-of-type(1) {
+                    max-width: 265px;
+                }
+
+                & .filtersm_btns {
+                    display: inline-flex;
+                    flex-direction: column;
+                    padding-left: 5px;
+
+                    & .filtersm_btn {
+                        width: 10px;
+                        height: 6px;
+                        background-image: url('search_arrow_down.png');
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: 100%;
+                        margin: 1px;
+                        cursor: pointer;
+                        &--down {
+                            background-image: url('search_arrow_up.png');
+                        }
+                    }
+                }
             }
         }
 
@@ -67,6 +117,7 @@
 
                     &:nth-child(1) {
                         color: #33449C;
+                        font-weight: 600;
                     }
 
                     &:nth-child(3) {

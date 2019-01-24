@@ -8,7 +8,7 @@ const initStore = {
 
 export default function worksListReducer (store=initStore,action) {
     switch (action.type) {
-        case 'API_GET_WORKS':  return {...store, ...action.payload};
+        case 'API_GOT_WORKS':  return {...store, ...action.payload};
         case 'TYPE_FILTER': return {...store, ...worksListFilter(action.payload.value, 'type_of_work', store.list)}
         case 'WORK_FILTER': return {...store, ...worksListFilter(action.payload.value, 'work_title', store.list)}
         case 'TYPES_SORT': return {...store, works: worksListSort(store.works, 'type_of_work')}
