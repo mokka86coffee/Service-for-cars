@@ -39,12 +39,13 @@ class Carservice extends React.Component {
         <thead>
             <tr>
                 <td>
-                    <p>Категория работ
+                    <div className="filtersm">
+                        <span>Категория работ</span>
                         <div className="filtersm_btns">
                             <span onClick={this.typeSort} className="filtersm_btn filtersm_btn--up"></span>
                             <span onClick={this.typeSortReverse} className="filtersm_btn filtersm_btn--down"></span>
                         </div>
-                    </p>
+                    </div>
                     <select onFocus={e=>e.target.classList.add('active')} onBlur={e=>e.target.classList.remove('active')} onChange={this.typeFilter} value={typeOfWork} name="type_of_work" id="type_of_work">
                         <option value="Все категории">Все категории</option>
                         {
@@ -54,12 +55,13 @@ class Carservice extends React.Component {
                     </select>
                 </td>
                 <td colSpan="2">
-                    <p>Вид работы
+                    <div className="filtersm">
+                        <span>Вид работы</span>
                         <div className="filtersm_btns">
                             <span onClick={this.titleSort} className="filtersm_btn filtersm_btn--up"></span>
                             <span onClick={this.titleSortReverse} className="filtersm_btn filtersm_btn--down"></span>
                         </div>
-                    </p>
+                    </div>
                     <select onChange={this.workFilter} onBlur={e=>e.target.classList.remove('active')} onFocus={e=>e.target.classList.add('active')} value={workTitle} name="work_title" id="work_title">
                         <option value="Любые работы">Любые работы</option>
                         {
@@ -68,9 +70,6 @@ class Carservice extends React.Component {
                         }
                     </select>
                 </td>
-{/* 
-                <th><button onClick={this.servicesSort}>Services</button></th>
-                <th><button onClick={this.servicesSortReverse}>Services Reverse</button></th> */}
             </tr>
         </thead>
         <tbody>
