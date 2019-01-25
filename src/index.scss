@@ -25,32 +25,11 @@
     &__list {
         border-collapse: collapse;
         width: 100%;
+    }
 
-        & thead {
-            background: #33449C;
-            border-radius: 2px;
-        }
-
-        & tbody {
-            & tr {
-                & td {
-                    font-size: 14px;
-                    padding-left: 20px;
-                    letter-spacing: -0.0075em;
-
-                    &:nth-child(1) {
-                        color: #33449C;
-                        font-weight: 600;
-                    }
-
-                    &:nth-child(3) {
-                        font-size: 16px;
-                        text-align: center;
-                            color: #33449C;
-                    }
-                }
-            }
-        }
+    &__filter-titles-container {
+        background: #33449C;
+        border-radius: 2px;
     }
     
     &__filtersm {
@@ -73,6 +52,8 @@
     &__filtersm-btn {
         width: 10px;
         height: 6px;
+        border: none;
+        background-color: transparent;
         background-image: url('search_arrow_down.png');
         background-repeat: no-repeat;
         background-position: center center;
@@ -84,21 +65,19 @@
         }
     }
 
-    &__filter-titles {
-        & td {
-            padding: 11px 21px 0;
+    &__box-title {
+        padding: 11px 21px 0;
 
-            &:nth-of-type(1) {
-                max-width: 265px;
-            }
+        &--first {
+            max-width: 265px;
+        }
 
-            &:nth-of-type(2) {
-                max-width: 362px;
-            }
+        &--second {
+            max-width: 362px;
+        }
 
-            &:nth-of-type(3) {
-                min-width: 65px;
-            }
+        &--third {
+            min-width: 65px;
         }
     }
     &__filter-options {
@@ -142,5 +121,24 @@
             display: none;
         }
     }
+    
+    &__item {
+        font-size: 14px;
+        padding-left: 20px;
+        letter-spacing: -0.0075em;
+
+        &--first {
+            color: #33449C;
+            font-weight: 600;
+        }
+
+        &--third {
+            font-size: 16px;
+            text-align: center;
+            color: #33449C;
+        }
+
+    }
+          
     
 }

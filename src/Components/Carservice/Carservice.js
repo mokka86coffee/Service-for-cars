@@ -36,27 +36,27 @@ class Carservice extends React.Component {
     <section className="autoservices">
     <h2 className="autoservices__title">Количество автосервисов по видам работ</h2>
     <table className="autoservices__list">
-        <thead>
+        <thead className="autoservices__filter-titles-container">
             <tr className="autoservices__filter-titles">
-                <td>
+                <td className="autoservices__box-title autoservices__box-title--first">
                     <div className="autoservices__filtersm">
                         <span>Категория работ</span>
                         <div className="autoservices__filtersm-btns">
-                            <span onClick={this.typeSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
-                            <span onClick={this.typeSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
+                            <button onClick={this.typeSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={this.typeSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
-                <td>
+                <td className="autoservices__box-title autoservices__box-title--second">
                     <div className="autoservices__filtersm">
                         <span>Вид работы</span>
                         <div className="autoservices__filtersm-btns">
-                            <span onClick={this.titleSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
-                            <span onClick={this.titleSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
+                            <button onClick={this.titleSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={this.titleSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
-                <td>
+                <td className="autoservices__box-title autoservices__box-title--third">
                 </td>
             </tr>
             <tr className="autoservices__filter-options">
@@ -96,20 +96,20 @@ class Carservice extends React.Component {
                     <div className="autoservices__filtersm">
                         <span>Кол-во</span>
                         <div className="autoservices__filtersm-btns">
-                            <span onClick={this.servicesSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
-                            <span onClick={this.servicesSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
+                            <button onClick={this.servicesSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={this.servicesSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
             </tr>
         </thead>
-        <tbody>
+        <tbody className="autoservices__items-container">
             {
                 works.length && works.map(el=>(
-                    <tr key={el.id}>
-                        <td>{el.type_of_work}</td>
-                        <td>{el.work_title}</td>
-                        <td>{el.services_counter}</td>
+                    <tr className="autoservices__items-box" key={el.id}>
+                        <td className="autoservices__item autoservices__item--first">{el.type_of_work}</td>
+                        <td className="autoservices__item autoservices__item--second">{el.work_title}</td>
+                        <td className="autoservices__item autoservices__item--third">{el.services_counter}</td>
                     </tr>
                 )) || <tr><td>Загрузка...</td></tr>
             }
