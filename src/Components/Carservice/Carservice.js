@@ -37,16 +37,38 @@ class Carservice extends React.Component {
     <h2 className="autoservices__title">Количество автосервисов по видам работ</h2>
     <table className="autoservices__list">
         <thead>
-            <tr>
+            <tr className="autoservices__filter-titles">
                 <td>
-                    <div className="filtersm">
+                    <div className="autoservices__filtersm">
                         <span>Категория работ</span>
-                        <div className="filtersm_btns">
+                        <div className="autoservices__filtersm-btns">
                             <span onClick={this.typeSort} className="filtersm_btn filtersm_btn--up"></span>
                             <span onClick={this.typeSortReverse} className="filtersm_btn filtersm_btn--down"></span>
                         </div>
                     </div>
-                    <select onFocus={e=>e.target.classList.add('active')} onBlur={e=>e.target.classList.remove('active')} onChange={this.typeFilter} value={typeOfWork} name="type_of_work" id="type_of_work">
+                </td>
+                <td>
+                    <div className="autoservices__filtersm">
+                        <span>Вид работы</span>
+                        <div className="autoservices__filtersm-btns">
+                            <span onClick={this.titleSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
+                            <span onClick={this.titleSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr className="autoservices__filter-options">
+                <td>
+                    <select 
+                        onFocus={e=>e.target.classList.add('active')} 
+                        onBlur={e=>e.target.classList.remove('active')} 
+                        onChange={this.typeFilter} 
+                        value={typeOfWork} 
+                        name="type_of_work" id="type_of_work"
+                        className="autoservices__select"
+                    >
                         <option value="Все категории">Все категории</option>
                         {
                             types.length && types.map((el, i) => 
@@ -54,21 +76,30 @@ class Carservice extends React.Component {
                         }
                     </select>
                 </td>
-                <td colSpan="2">
-                    <div className="filtersm">
-                        <span>Вид работы</span>
-                        <div className="filtersm_btns">
-                            <span onClick={this.titleSort} className="filtersm_btn filtersm_btn--up"></span>
-                            <span onClick={this.titleSortReverse} className="filtersm_btn filtersm_btn--down"></span>
-                        </div>
-                    </div>
-                    <select onChange={this.workFilter} onBlur={e=>e.target.classList.remove('active')} onFocus={e=>e.target.classList.add('active')} value={workTitle} name="work_title" id="work_title">
+                <td>
+                    <select 
+                        onChange={this.workFilter} 
+                        onBlur={e=>e.target.classList.remove('active')} 
+                        onFocus={e=>e.target.classList.add('active')} 
+                        value={workTitle} 
+                        name="work_title" id="work_title"
+                        className="autoservices__select"
+                    >
                         <option value="Любые работы">Любые работы</option>
                         {
                             list.length && list.map((el, i) => 
                             <option key={i} value={el.work_title}>{el.work_title}</option>)
                         }
                     </select>
+                </td>
+                <td>
+                    <div className="autoservices__filtersm">
+                        <span>Кол-во</span>
+                        <div className="autoservices__filtersm-btns">
+                            <span onClick={this.servicesSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
+                            <span onClick={this.servicesSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </thead>
