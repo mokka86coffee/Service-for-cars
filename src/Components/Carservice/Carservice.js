@@ -42,8 +42,8 @@ class Carservice extends React.Component {
                     <div className="autoservices__filtersm">
                         <span>Категория работ</span>
                         <div className="autoservices__filtersm-btns">
-                            <span onClick={this.typeSort} className="filtersm_btn filtersm_btn--up"></span>
-                            <span onClick={this.typeSortReverse} className="filtersm_btn filtersm_btn--down"></span>
+                            <span onClick={this.typeSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></span>
+                            <span onClick={this.typeSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></span>
                         </div>
                     </div>
                 </td>
