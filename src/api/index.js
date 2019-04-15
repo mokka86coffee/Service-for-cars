@@ -15,7 +15,7 @@ function crossBrowserFetch() {
               };
         })
     } else {
-        return fetch(link).then( res => resolve(res.json()) )
+        return fetch(link).then( res => res.json() )
     } 
 }
 

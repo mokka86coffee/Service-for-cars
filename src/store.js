@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import api from './api';
 
 //reducers
 import worksListReducer from './reducers/worksListReducer.js';
