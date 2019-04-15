@@ -1,7 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-class Carservice extends React.Component {
+import { fetchWorkTypes } from '../../actions';
+
+const enhancer = connect(
+    store => store,
+    () => ({ fetchWorkTypes })
+)
+
+class Carservice extends React.PureComponent {
 
     constructor(props) {
         super(props);
@@ -9,7 +16,9 @@ class Carservice extends React.Component {
     }
 
     componentDidMount(){
-        this.props.dispatch({type: 'API_GET_WORKS'});
+        console.log(this.props);
+        // this.props.dispatch({type: 'API_GET_WORKS'});
+        // this.props.fetchWorkTypes();
     }
 
     typeSort = () => this.props.dispatch({type: 'TYPES_SORT'});
@@ -121,7 +130,7 @@ class Carservice extends React.Component {
     }
 }
 
-export default connect(store=>store)(Carservice);
+export default enhancer(Carservice);
 
 
 

@@ -1,3 +1,5 @@
+import { WORK_TYPES_FETCHING, WORK_TYPES_FETCHING_DONE, WORK_TYPES_FETCHING_ERR } from '../actions';
+
 const initStore = {
     works: [],
     list: [],
@@ -6,9 +8,12 @@ const initStore = {
     workTitle: 'Любые работы'
 }
 
+
+
 export default function worksListReducer ( store = initStore, action ) {
     switch (action.type) {
-        case 'API_GOT_WORKS':  return {...store, ...action.payload};
+        case WORK_TYPES_FETCHING:  return store;
+        case WORK_TYPES_FETCHING_DONE:  return { ...store, ...action.payload };
         case 'TYPE_FILTER': return {...store, ...worksListFilter(action.payload.value, 'type_of_work', store.list)}
         case 'WORK_FILTER': return {...store, ...worksListFilter(action.payload.value, 'work_title', store.list)}
         case 'TYPES_SORT': return {...store, works: worksListSort(store.works, 'type_of_work')}

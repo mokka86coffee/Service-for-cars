@@ -21,6 +21,7 @@
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
     "redux-devtools-extension": "^2.13.7",
+    "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2",

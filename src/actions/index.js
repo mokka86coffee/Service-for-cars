@@ -1,8 +1,9 @@
-export const FETCHING_WORK_TYPES = 'FETCHING_WORK_TYPES';
+export const WORK_TYPES_FETCHING = 'FETCHING_WORK_TYPES';
+export const WORK_TYPES_FETCHING_DONE = 'WORK_TYPES_FETCHING_DONE';
+export const WORK_TYPES_FETCHING_ERR = 'WORK_TYPES_FETCHING_ERR';
 
-export const fetchWorkTypes = () => {
+export function fetchWorkTypes() {
     return async dispatch => {
-        dispatch({ type: FETCHING_WORK_TYPES });
-
+        dispatch({ type: WORK_TYPES_FETCHING });
     }
 }

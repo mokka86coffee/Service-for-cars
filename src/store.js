@@ -1,16 +1,21 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+
 //reducers
 import worksListReducer from './reducers/worksListReducer.js';
-//middlewares
-import apiMiddleware from './middlewares/apiMiddleware';
 
-const reducer = combineReducers({
+
+const rootReducer = combineReducers({
     worksList: worksListReducer
 });
 
-const fromMiddleware = applyMiddleware(apiMiddleware)(createStore);
+const store = createStore(
+    rootReducer,
+    initStore,
+    applyMiddleware(thunkMiddleware)
+);
 
-const store = fromMiddleware(reducer, {
+const initStore = {
     worksList: {
         works: [],
         list: [],
@@ -18,6 +23,6 @@ const store = fromMiddleware(reducer, {
         typeOfWork: 'Все категории',
         workTitle: 'Любые работы'
     }
-});
+};
 
 export default store;

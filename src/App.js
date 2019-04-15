@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 //Components
 import Carservice from './Components/Carservice';
 
-class App extends React.PureComponent {
+class App extends React.Component {
     render() {
         return (
             <React.Fragment>
@@ -14,5 +14,5 @@ class App extends React.PureComponent {
     }
 }
 
-export default connect(store=>store)(App);
+export default App;
 
