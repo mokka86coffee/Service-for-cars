@@ -26,7 +26,6 @@ function crossBrowserFetch(link) {
             xhr.open('GET', link, true);
             xhr.send();
             xhr.onload = xhr.onerror = function() {
-                console.log(this);
                 if (this.status == 200) {
                      resolve(JSON.parse(xhr.responseText))
                 } else {
@@ -35,9 +34,7 @@ function crossBrowserFetch(link) {
               };
         })
     } else {
-        return new Promise(resolve=>
-            fetch('https://api1.remontista.ru/tools/all_work_type').then(res=>resolve(res.json())).catch(err=>rej(err))
-        )
+        return fetch('https://api1.remontista.ru/tools/all_work_type').then(res=>resolve(res.json())).catch(err=>rej(err))
     } 
 }
 
