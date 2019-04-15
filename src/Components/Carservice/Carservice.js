@@ -16,7 +16,6 @@ class Carservice extends React.PureComponent {
     }
 
     componentDidMount(){
-        // this.props.dispatch({type: 'API_GET_WORKS'});
         this.props.fetchWorkTypes();
     }
 
