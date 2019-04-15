@@ -1,4 +1,9 @@
-import { WORK_TYPES_FETCHING, WORK_TYPES_FETCHING_DONE, WORK_TYPES_FETCHING_ERR } from '../actions';
+import { 
+    WORK_TYPES_FETCHING, WORK_TYPES_FETCHING_DONE, WORK_TYPES_FETCHING_ERR,
+    TYPES_SORT, TYPES_SORT_REVERSE,
+    TITLES_SORT, TITLES_SORT_REVERSE,
+    SERVICES_SORT, SERVICES_SORT_REVERSE 
+} from '../actions';
 
 const initStore = {
     works: [],
@@ -16,12 +21,12 @@ export default function worksListReducer ( store = initStore, action ) {
         case WORK_TYPES_FETCHING_DONE:  return { ...store, ...action.payload };
         case 'TYPE_FILTER': return {...store, ...worksListFilter(action.payload.value, 'type_of_work', store.list)}
         case 'WORK_FILTER': return {...store, ...worksListFilter(action.payload.value, 'work_title', store.list)}
-        case 'TYPES_SORT': return {...store, works: worksListSort(store.works, 'type_of_work')}
-        case 'TYPES_SORT_REVERSE': return {...store,  works: worksListSort(store.works, 'type_of_work_reverse')}
-        case 'TITLES_SORT': return {...store, works: worksListSort(store.works, 'work_title')}
-        case 'TITLES_SORT_REVERSE': return {...store,  works: worksListSort(store.works, 'work_title_reverse')}
-        case 'SERVICES_SORT': return {...store, works: worksListSort(store.works, 'services_counter')}
-        case 'SERVICES_SORT_REVERSE': return {...store,  works: worksListSort(store.works, 'services_counter_reverse')}
+        case TYPES_SORT: return {...store, works: worksListSort(store.works, 'type_of_work')}
+        case TYPES_SORT_REVERSE: return {...store,  works: worksListSort(store.works, 'type_of_work_reverse')}
+        case TITLES_SORT: return {...store, works: worksListSort(store.works, 'work_title')}
+        case TITLES_SORT_REVERSE: return {...store,  works: worksListSort(store.works, 'work_title_reverse')}
+        case SERVICES_SORT: return {...store, works: worksListSort(store.works, 'services_counter')}
+        case SERVICES_SORT_REVERSE: return {...store,  works: worksListSort(store.works, 'services_counter_reverse')}
         default: return store;
     }
 }
