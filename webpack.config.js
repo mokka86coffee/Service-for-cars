@@ -122,15 +122,6 @@ let conf = {
                   ]
               })
            },
-           // {
-           //    test: /\.scss$/,
-           //    exclude: '/node_modules/',
-           //    use: [
-           //       'style-loader',
-           //       'css-loader',
-           //       'sass-loader'
-           //    ]
-           // },
             {
               test: /\.css$/,
               exclude: '/node_modules/',
