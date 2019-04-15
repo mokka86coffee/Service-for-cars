@@ -6,7 +6,7 @@ const initStore = {
     workTitle: 'Любые работы'
 }
 
-export default function worksListReducer (store=initStore,action) {
+export default function worksListReducer ( store = initStore, action ) {
     switch (action.type) {
         case 'API_GOT_WORKS':  return {...store, ...action.payload};
         case 'TYPE_FILTER': return {...store, ...worksListFilter(action.payload.value, 'type_of_work', store.list)}
@@ -65,7 +65,7 @@ function mainSortReverse(next, prev) {
 function workSort(next, prev) {
     if (next.work_title > prev.work_title) { return 1 }
     else if (next.work_title < prev.work_title) { return -1 }
-    else { console.log('есть'); return 0;}
+    else { return 0; }
 }
 
 function workSortReverse(next, prev) {
