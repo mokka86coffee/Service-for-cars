@@ -5,34 +5,28 @@ export const WORK_TYPES_FETCHING_ERR = 'WORK_TYPES_FETCHING_ERR';
 export function fetchWorkTypes() {
     return async dispatch => {
         dispatch({ type: WORK_TYPES_FETCHING });
+        
         try {
-            const fetchedData = crossBrowserFetch('https://api1.remontista.ru/tools/all_work_type')
+            
+            const fetchedData = await crossBrowserFetch('https://api1.remontista.ru/tools/all_work_type');
+
+            if ( fetchedData.result != 'success' ) { throw new Error(`can't get data from server`) };
+
+            const resultedArray = exportFromFetch(fetchedData.work_types);
+
+            store.dispatch({
+                type: WORK_TYPES_FETCHING_DONE, 
+                payload: {
+                    works: resultedArray,
+                    list: resultedArray,
+                    types: Object.keys(fetchedData.work_types)
+                }
+            });
 
         } catch (err) {
-            dispatch({ type: WORK_TYPES_FETCHING });
+            dispatch({ type: WORK_TYPES_FETCHING_ERR });
         }
     }
-}
-
-const apiMiddleWare = store => next => action => {
-    if (action.type == 'API_GET_WORKS') {
-        
-        .then(res=>{
-            if(res.result=='success') {
-                const resultedArray = exportFromFetch(res.work_types);
-                store.dispatch({type: 'API_GOT_WORKS', payload: {
-                                            works: resultedArray,
-                                            list: resultedArray,
-                                            types: Object.keys(res.work_types)
-                                         }
-                                })
-            } else {
-                throw new Error('Got error from fetch');
-            }
-        })        
-        .catch(err=>console.log(err));
-    } 
-    next(action);
 }
 
 function exportFromFetch(fetchedArray) {
