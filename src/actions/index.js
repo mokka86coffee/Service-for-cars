@@ -5,12 +5,18 @@ export const WORK_TYPES_FETCHING_ERR = 'WORK_TYPES_FETCHING_ERR';
 export function fetchWorkTypes() {
     return async dispatch => {
         dispatch({ type: WORK_TYPES_FETCHING });
+        try {
+            const fetchedData = crossBrowserFetch('https://api1.remontista.ru/tools/all_work_type')
+
+        } catch (err) {
+            dispatch({ type: WORK_TYPES_FETCHING });
+        }
     }
 }
 
 const apiMiddleWare = store => next => action => {
     if (action.type == 'API_GET_WORKS') {
-        crossBrowserFetch('https://api1.remontista.ru/tools/all_work_type')
+        
         .then(res=>{
             if(res.result=='success') {
                 const resultedArray = exportFromFetch(res.work_types);
