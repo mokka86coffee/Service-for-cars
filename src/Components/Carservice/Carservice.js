@@ -5,7 +5,7 @@ import { fetchWorkTypes } from '../../actions';
 
 const enhancer = connect(
     store => store,
-    () => ({ fetchWorkTypes })
+    { fetchWorkTypes }
 )
 
 class Carservice extends React.PureComponent {
@@ -16,9 +16,8 @@ class Carservice extends React.PureComponent {
     }
 
     componentDidMount(){
-        console.log(this.props);
         // this.props.dispatch({type: 'API_GET_WORKS'});
-        // this.props.fetchWorkTypes();
+        this.props.fetchWorkTypes();
     }
 
     typeSort = () => this.props.dispatch({type: 'TYPES_SORT'});

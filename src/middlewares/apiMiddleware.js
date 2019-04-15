@@ -19,25 +19,6 @@ const apiMiddleWare = store => next => action => {
     next(action);
 }
 
-function crossBrowserFetch(link) {
-    if (!!navigator.userAgent.match(/Trident.*rv\:11\./)) { //if IE
-        return new Promise( (resolve,reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', link, true);
-            xhr.send();
-            xhr.onload = xhr.onerror = function() {
-                if (this.status == 200) {
-                     resolve(JSON.parse(xhr.responseText))
-                } else {
-                    reject(`${xhr.status} :  ${xhr.statusText}`);
-                }
-              };
-        })
-    } else {
-        return fetch('https://api1.remontista.ru/tools/all_work_type').then( res => resolve(res.json()) )
-    } 
-}
-
 function exportFromFetch(fetchedArray) {
     let worksAsArray = Object.keys(fetchedArray).reduce((res, el) => [...res, { [el]: fetchedArray[el] }], []);
     let id = 0;
