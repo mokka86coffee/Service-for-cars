@@ -14,7 +14,7 @@ export function fetchWorkTypes() {
 
             const resultedArray = exportFromFetch(fetchedData.work_types);
 
-            store.dispatch({
+            dispatch({
                 type: WORK_TYPES_FETCHING_DONE, 
                 payload: {
                     works: resultedArray,
