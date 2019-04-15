@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 
 import { fetchWorkTypes } from '../../actions';
 
+import * as sortAcs from '../../actions/sortingActions';
+
 const enhancer = connect(
     store => store,
-    { fetchWorkTypes }
+    { fetchWorkTypes, sortAction }
 )
 
 class Carservice extends React.PureComponent {
@@ -19,12 +21,7 @@ class Carservice extends React.PureComponent {
         this.props.fetchWorkTypes();
     }
 
-    typeSort = () => this.props.dispatch({type: 'TYPES_SORT'});
-    typeSortReverse = () => this.props.dispatch({type: 'TYPES_SORT_REVERSE'});
-    titleSort = () => this.props.dispatch({type: 'TITLES_SORT'});
-    titleSortReverse = () => this.props.dispatch({type: 'TITLES_SORT_REVERSE'});
-    servicesSort = () => this.props.dispatch({type: 'SERVICES_SORT'});
-    servicesSortReverse = () => this.props.dispatch({type: 'SERVICES_SORT_REVERSE'});
+    handleSort = (type) => this.props.sortAcs.dispatchSort(type);
 
     typeFilter = (e) => {
         e.target.classList.remove('active');
@@ -49,8 +46,8 @@ class Carservice extends React.PureComponent {
                     <div className="autoservices__filtersm">
                         <span>Категория работ</span>
                         <div className="autoservices__filtersm-btns">
-                            <button onClick={this.typeSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
-                            <button onClick={this.typeSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
+                            <button onClick={() => this.handleSort('TYPES_SORT')} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={() => this.handleSort('TYPES_SORT_REVERSE')} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
@@ -58,8 +55,8 @@ class Carservice extends React.PureComponent {
                     <div className="autoservices__filtersm">
                         <span>Вид работы</span>
                         <div className="autoservices__filtersm-btns">
-                            <button onClick={this.titleSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
-                            <button onClick={this.titleSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
+                            <button onClick={() => this.handleSort('TITLES_SORT')} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={() => this.handleSort('TITLES_SORT_REVERSE')} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
@@ -103,8 +100,8 @@ class Carservice extends React.PureComponent {
                     <div className="autoservices__filtersm">
                         <span>Кол-во</span>
                         <div className="autoservices__filtersm-btns">
-                            <button onClick={this.servicesSort} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
-                            <button onClick={this.servicesSortReverse} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
+                            <button onClick={() => this.handleSort('SERVICES_SORT')} className="autoservices__filtersm-btn autoservices__filtersm-btn--up"></button>
+                            <button onClick={() => this.handleSort('SERVICES_SORT_REVERSE')} className="autoservices__filtersm-btn autoservices__filtersm-btn--down"></button>
                         </div>
                     </div>
                 </td>
