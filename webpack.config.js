@@ -1,7 +1,6 @@
 let path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
-const csswring = require("csswring");
 
 let conf = {
      entry: ['babel-polyfill','./src/index.js'],
@@ -25,13 +24,6 @@ let conf = {
                             'plugins': ['@babel/plugin-proposal-class-properties']}]    // используемые плагины
 	                }
            },
-           // {
-           //    test: /\.css$/,
-           //    use: ExtractTextPlugin.extract({
-           //       fallback: "style-loader",
-           //       use: "css-loader"
-           //    })
-           // },
            // {
            //    test: /\.(gif|png|jpe?g|svg)$/i,
            //    use: [
@@ -107,8 +99,7 @@ let conf = {
                             plugins: [
                                 autoprefixer({
                                     browsers:['cover 99.5%']
-                                }),
-                                csswring({removeAllComments: true,preserveHacks: true})
+                                })
                             ],
                             sourceMap: true
                         }
