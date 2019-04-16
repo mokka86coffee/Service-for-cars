@@ -83,8 +83,8 @@ class Carservice extends React.PureComponent {
                 <td>
                     <select 
                         onChange={this.workFilter} 
-                        onBlur={e=>e.target.classList.remove('active')} 
-                        onFocus={e=>e.target.classList.add('active')} 
+                        onBlur={ e => e.target.classList.remove('active') } 
+                        onFocus={ e => e.target.classList.add('active') } 
                         value={workTitle} 
                         name="work_title" id="work_title"
                         className="autoservices__select"
