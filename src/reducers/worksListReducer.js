@@ -1,9 +1,9 @@
-import { 
-    WORK_TYPES_FETCHING, WORK_TYPES_FETCHING_DONE, WORK_TYPES_FETCHING_ERR,
+import { WORK_TYPES_FETCHING, WORK_TYPES_FETCHING_DONE, WORK_TYPES_FETCHING_ERR } from '../actions';
+import {
     TYPES_SORT, TYPES_SORT_REVERSE,
     TITLES_SORT, TITLES_SORT_REVERSE,
     SERVICES_SORT, SERVICES_SORT_REVERSE 
-} from '../actions';
+} from '../actions/sortingActions';
 
 const initStore = {
     works: [],
