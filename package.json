@@ -9,6 +9,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.3",
+    "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^2.1.1",
@@ -22,6 +23,7 @@
     "postcss": "^7.0.7",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
+    "react-test-renderer": "^16.8.6",
     "redux-devtools-extension": "^2.13.7",
     "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
@@ -33,7 +35,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest"
   },
   "author": "",
   "description": "",

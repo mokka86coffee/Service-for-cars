@@ -5,7 +5,7 @@ import {
     SERVICES_SORT, SERVICES_SORT_REVERSE 
 } from '../actions/sortingActions';
 
-const initStore = {
+export const initStore = {
     works: [],
     list: [],
     types: [],
