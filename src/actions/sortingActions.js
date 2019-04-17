@@ -5,6 +5,7 @@ export const TITLES_SORT_REVERSE = 'TITLES_SORT_REVERSE';
 export const SERVICES_SORT = 'SERVICES_SORT';
 export const SERVICES_SORT_REVERSE = 'SERVICES_SORT_REVERSE';
 
-export function dispatchSort(type) {
+export default function dispatchSort(type) {
     return { type }
 }
+ 

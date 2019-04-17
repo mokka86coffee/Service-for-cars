@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import { fetchWorkTypes } from '../../actions';
 
-import * as sortAction from '../../actions/sortingActions';
+import sortAction from '../../actions/sortingActions';
 
 const enhancer = connect(
     store => store,
     { fetchWorkTypes, sortAction }
 )
-
 class Carservice extends React.PureComponent {
 
     constructor(props) {
@@ -21,7 +20,7 @@ class Carservice extends React.PureComponent {
         this.props.fetchWorkTypes();
     }
 
-    handleSort = (type) => this.props.sortAction.dispatchSort(type);
+    handleSort = (type) => this.props.sortAction(type);
 
     typeFilter = (e) => {
         e.target.classList.remove('active');
@@ -35,6 +34,7 @@ class Carservice extends React.PureComponent {
     }
 
     render() {
+    
     const { works, list, types, typeOfWork, workTitle } = this.props.worksList;
     return (
     <section className="autoservices">
