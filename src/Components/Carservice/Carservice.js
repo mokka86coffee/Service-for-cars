@@ -33,6 +33,7 @@ class Carservice extends React.PureComponent {
         this.props.dispatch({type: 'WORK_FILTER', payload: {value: e.target.options[e.target.selectedIndex].text}});
     }
 
+
     render() {
     
     const { works, list, types, typeOfWork, workTitle } = this.props.worksList;
