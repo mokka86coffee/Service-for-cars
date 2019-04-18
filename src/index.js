@@ -19,7 +19,6 @@ import ReactDOMServer from 'react-dom/server';
 
 // ReactDOMServer.renderToNodeStream(<Provider store = {store}><App /></Provider>);
 
-const touchMove = e => console.log(e);
 {
     const style = document.createElement('style');
     style.innerHTML = `.div { 
@@ -33,9 +32,14 @@ const touchMove = e => console.log(e);
     }`;
     document.body.appendChild(style);
 }
+const touchStart = e => console.log('touchStart', e.touches[0]);
+const touchEnd  = e => console.log('touchEnd',e.touches[0]);
+const touchMove = e => console.log('touchMove', e.touches[0]);
 
 const div = document.createElement('div');
 
 document.body.appendChild(div);
 div.className = 'div';
-div.addEventListener( 'touchstart', touchMove )
+div.addEventListener( 'touchstart', touchStart );
+div.addEventListener( 'touchend', touchEnd );
+div.addEventListener( 'touchmove', touchMove );
