@@ -13,3 +13,8 @@ ReactDOM.render(
     </Provider>, 
     document.querySelector('#root')
 );
+
+
+import ReactDOMServer from 'react-dom/server';
+
+ReactDOMServer.renderToNodeStream(<Provider store = {store}><App /></Provider>);
