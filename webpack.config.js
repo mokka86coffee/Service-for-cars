@@ -20,8 +20,10 @@ let conf = {
      	   	  exclude: '/node_modules/',
 	          loader: "babel-loader",   // определяем загрузчик
 	                options:{
-	                    presets:["@babel/preset-env","@babel/preset-react",{
-                            'plugins': ['@babel/plugin-proposal-class-properties']}]    // используемые плагины
+                        presets:["@babel/preset-env","@babel/preset-react",
+                        {
+                            'plugins': ['@babel/plugin-proposal-class-properties']
+                        }]    // используемые плагины
 	                }
            },
            // {
