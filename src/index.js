@@ -109,3 +109,19 @@ ReactDOM.render(
   <TodoList store={ observableTodoStore } />, 
   document.getElementById('reactjs-app')
 );
+
+
+if ( 
+  location.pathname.indexOf('rashodniki-i-osnastka') 
+  &&
+  document.querySelector('.eshop-item-list__container')
+) {
+  document.querySelectorAll('.eshop-item-small__prices')
+  .forEach( node => {
+    let p = document.createElement('p')
+    p.className = 'mt-3'
+    p.style.fontSize = '.8rem'
+    p.innerText = 'Минимальная сумма заказа от 5 тыс. руб.'
+    node.appendChild(p)
+  })
+}
